@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class NameToInteger {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        try {
+            String sub = name.substring(0, 3); // may throw StringIndexOutOfBoundsException
+            int number = Integer.parseInt(sub); // may throw NumberFormatException
+            System.out.println("Converted number: " + number);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Error: Name must have at least 3 characters.");
+        } catch (NumberFormatException e) {
+            System.out.println("Error: First three characters cannot be converted to a number.");
+        }
+    }
+}
